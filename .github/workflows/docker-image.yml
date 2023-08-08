@@ -29,8 +29,8 @@ jobs:
       with:
         images: ${{env.IMAGE_REGISTRY_URL}}/${{ github.repository }}/${{env.DOCKER_IMAGE_NAME}}
         tags: |
-          type=semver,pattern={{version}},value=v1.0
-          type=semver,pattern={{version}},value=latest
+          type=semver,pattern={{version}},value=v1.0.0
+          type=raw,enable=true,priority=200,prefix=,suffix=,value=latest
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v3
